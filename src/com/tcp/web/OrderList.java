@@ -2,13 +2,22 @@ package com.tcp.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Iterator;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.tcp.pojo.Orders;
+import com.tcp.pojo.User;
+import com.tcp.service.OrdersService;
+import com.tcp.service.impl.OrderServiceImpl;
+
 public class OrderList extends HttpServlet {
+	OrdersService os=new OrderServiceImpl();
+	List<Orders> orderList=os.getOrdersList();
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -85,28 +94,28 @@ public class OrderList extends HttpServlet {
 		out.write("				<td valign=middle align=center height=25 background=\"images/bg2.gif\"><font color=\"#ffffff\"><b>付款方式</b></font></td>");
 		out.write("				<td valign=middle align=center height=25 background=\"images/bg2.gif\"><font color=\"#ffffff\"><b>操作</b></font></td>");
 		out.write("			</tr>");
-		out.write("			<tr>");
-		out.write("				<td class=tablebody2 valign=middle align=center>1</td>");
-		out.write("				<td class=tablebody1 valign=middle>&nbsp;&nbsp;<a href=\"orderDetail.html\">389</a></td>");
-		out.write("				<td class=tablebody2 valign=middle align=left>&nbsp;&nbsp;￥59.0</td>");
-		out.write("				<td class=tablebody1 valign=middle align=center>pending</td>");
-		out.write("				<td class=tablebody2 valign=middle align=left>&nbsp;&nbsp;货到付款 </td>");
-		out.write("				<td class=tablebody1 valign=middle align=center>");
-		out.write("					<input type=\"button\" value=\"删除\" onclick=\"javascript:window.location='orderList.html';\">&nbsp;");
-		out.write("					<input type=\"button\" value=\"明细\" onclick=\"javascript:window.location='orderDetail.html';\">");
-		out.write("				</td>");
-		out.write("			</tr>");
-		out.write("			<tr>");
-		out.write("				<td class=tablebody2 valign=middle align=center>2</td>");
-		out.write("				<td class=tablebody1 valign=middle>&nbsp;&nbsp;<a href=\"orderDetail.html\">389</a></td>");
-		out.write("				<td class=tablebody2 valign=middle align=left>&nbsp;&nbsp;￥137.0</td>");
-		out.write("				<td class=tablebody1 valign=middle align=center>pending</td>");
-		out.write("				<td class=tablebody2 valign=middle align=left>&nbsp;&nbsp;邮局汇款 </td>");
-		out.write("				<td class=tablebody1 valign=middle align=center>");
-		out.write("					<input type=\"button\" value=\"删除\" onclick=\"javascript:window.location='orderList.html';\">&nbsp;");
-		out.write("					<input type=\"button\" value=\"明细\" onclick=\"javascript:window.location='orderDetail.html';\">");
-		out.write("				</td>");
-		out.write("			</tr>");
+		
+		for (Iterator<Orders> it = orderList.iterator(); it.hasNext();) {
+			Orders order = it.next();
+			out.write("			<tr>");
+			out.write("				<td class=tablebody2 valign=middle align=center>1</td>");
+			out.write("				<td class=tablebody1 valign=middle>&nbsp;&nbsp;<a href=\"orderDetail.html\">389</a></td>");
+			out.write("				<td class=tablebody2 valign=middle align=left>&nbsp;&nbsp;￥59.0</td>");
+			out.write("				<td class=tablebody1 valign=middle align=center>pending</td>");
+			out.write("				<td class=tablebody2 valign=middle align=left>&nbsp;&nbsp;货到付款 </td>");
+			out.write("				<td class=tablebody1 valign=middle align=center>");
+			out.write("					<input type=\"button\" value=\"删除\" onclick=\"javascript:window.location='orderList.html';\">&nbsp;");
+			out.write("					<input type=\"button\" value=\"明细\" onclick=\"javascript:window.location='orderDetail.html';\">");
+			out.write("				</td>");
+			out.write("			</tr>");
+
+			
+		}
+	
+		
+		
+		
+		
 		out.write("		</table>");
 		out.write("		<br>");
 		out.write("<!-- Body End -->");

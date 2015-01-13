@@ -3,124 +3,102 @@ public class Orders {
 	
 	private String ordername;
 	
-	private String cost;
+	private float cost;
 	
 	private String userid;
 	
-	private String orderid;//和orderline连接
+	private int orderid;//和orderline连接
 	
-	private String statusid;//和orderstatus连接
+	private int statusid;//和orderstatus连接
 
-	private String paywayid;//和payway连接
+	private int paywayid;//和payway连接
 	
+	//orderline
+	private int lineid;
+	
+	private int productid;
+	
+	private float amount;
+	
+	//orderstatus
+    private String statusname;
+	
+	private String description;
+	//payway
+	private String paystyle;
 	public String getOrdername() {
 		return ordername;
 	}
 	public void setOrdername(String ordername) {
 		this.ordername = ordername;
 	}
-	
-	public String getCost() {
+	public float getCost() {
 		return cost;
 	}
-	public void setCost(String cost) {
+	public void setCost(float cost) {
 		this.cost = cost;
 	}
-	
 	public String getUserid() {
 		return userid;
 	}
 	public void setUserid(String userid) {
 		this.userid = userid;
 	}
-	
-	public String getOrderid() {
+	public int getOrderid() {
 		return orderid;
 	}
-	public void setOrderid(String orderid) {
+	public void setOrderid(int orderid) {
 		this.orderid = orderid;
 	}
-	
-	public String getStatusid() {
+	public int getStatusid() {
 		return statusid;
 	}
-	public void setStatusid(String statusid) {
+	public void setStatusid(int statusid) {
 		this.statusid = statusid;
 	}
-	
-	public String getPaywayid() {
+	public int getPaywayid() {
 		return paywayid;
 	}
-	public void setPaywayid(String paywayid) {
+	public void setPaywayid(int paywayid) {
 		this.paywayid = paywayid;
 	}
-	
-	
-	
-	
-	
-	//orderline
-	private String lineid;
-	
-	private String productid;
-	
-	private String amount;
-	
-	public String getLineid() {
+	public int getLineid() {
 		return lineid;
 	}
-	public void setLineid(String lineid) {
+	public void setLineid(int lineid) {
 		this.lineid = lineid;
 	}
-	
-	public String getProductid() {
+	public int getProductid() {
 		return productid;
 	}
-	public void setProductid(String productid) {
+	public void setProductid(int productid) {
 		this.productid = productid;
 	}
-	public String getAmount() {
+	public float getAmount() {
 		return amount;
 	}
-	public void setAmount(String amount) {
+	public void setAmount(float amount) {
 		this.amount = amount;
 	}
-	
-	
-	//orderstatus
-    private String statusname;
-	
-	private String description;
-	
-	
-
 	public String getStatusname() {
 		return statusname;
 	}
-
 	public void setStatusname(String statusname) {
 		this.statusname = statusname;
 	}
-
 	public String getDescription() {
 		return description;
 	}
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-	
-	
-	//payway
-	private String paystyle;
-	
 	public String getPaystyle() {
 		return paystyle;
 	}
-
 	public void setPaystyle(String paystyle) {
-		this.paystyle= paystyle;
+		this.paystyle = paystyle;
 	}
+	
+	
 	
 }

@@ -11,6 +11,24 @@ public class Product {
 	private String images;// 配图
 	private int categoryid; // 书目类别
 	private int pages;// 书目页码
+	private String categoryname;  //书目类别名称
+	private String categorydescription;//书目类别描述
+
+	public String getCategoryname() {
+		return categoryname;
+	}
+
+	public void setCategoryname(String categoryname) {
+		this.categoryname = categoryname;
+	}
+
+	public String getCategorydescription() {
+		return categorydescription;
+	}
+
+	public void setCategorydescription(String categorydescription) {
+		this.categorydescription = categorydescription;
+	}
 
 	public int getProductid() {
 		return productid;

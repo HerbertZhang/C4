@@ -26,7 +26,7 @@ public class ProductServiceImpl implements ProductService {
 			conn = DriverManager.getConnection(
 					"jdbc:mysql://localhost:3306/gwap", "root", "");
 			stmt = conn.createStatement();
-			rs = stmt.executeQuery("select * from product");
+			rs = stmt.executeQuery("select *   from product,category where product.categoryid=category.categoryid");
 
 			while (rs.next()) {
 				Product product = new Product();
@@ -41,6 +41,8 @@ public class ProductServiceImpl implements ProductService {
 				product.setPublish(rs.getString("publish"));
 				product.setPages(Integer.parseInt(rs.getString("pages")));
 				product.setImages(rs.getString("images"));
+				product.setCategoryname(rs.getString("category.name"));
+				product.setCategorydescription(rs.getString("category.description"));
 				productList.add(product);
 			}
 
